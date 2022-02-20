@@ -1,2 +1,3 @@
-# simple-os
-Building a simple os using C#
+# go-kit
+
+Go-kit is a golang package that implements Micro-service architecture.
