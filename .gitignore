@@ -1,2 +1,11 @@
+# golang
 .idea/
+
+# macOS
 .DS_Store
+
+# exe files
+*.exe
+
+# vendor
+.vendor/
