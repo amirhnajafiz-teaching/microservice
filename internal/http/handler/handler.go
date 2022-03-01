@@ -35,7 +35,13 @@ func (Handler) Concatenate(s string, c string) (string, error) {
 	return s + c, nil
 }
 
-//Split(string, string) ([]string, error)
+func (Handler) Split(s string, k string) ([]string, error) {
+	if s == "" || k == "" {
+		return nil, ErrEmpty
+	}
+
+	return strings.Split(s, k), nil
+}
 
 func (Handler) Count(s string) int {
 	return len(s)
