@@ -11,7 +11,7 @@ import (
 
 // Endpoints are a primary abstraction in go-kit. An endpoint represents a single RPC (method in our service interface)
 
-func MakeUppercaseEndpoint(svc handler.Handler) endpoint.Endpoint {
+func MakeUppercaseEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.UppercaseRequest)
 		v, err := svc.Uppercase(req.S)
@@ -23,7 +23,7 @@ func MakeUppercaseEndpoint(svc handler.Handler) endpoint.Endpoint {
 	}
 }
 
-func MakeLowercaseEndpoint(svc handler.Handler) endpoint.Endpoint {
+func MakeLowercaseEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.LowercaseRequest)
 		v, err := svc.Lowercase(req.S)
@@ -35,7 +35,7 @@ func MakeLowercaseEndpoint(svc handler.Handler) endpoint.Endpoint {
 	}
 }
 
-func MakeConcatenateEndpoint(svc handler.Handler) endpoint.Endpoint {
+func MakeConcatenateEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.ConcatenateRequest)
 		v, err := svc.Concatenate(req.S, req.C)
@@ -47,7 +47,7 @@ func MakeConcatenateEndpoint(svc handler.Handler) endpoint.Endpoint {
 	}
 }
 
-func MakeSplitEndpoint(svc handler.Handler) endpoint.Endpoint {
+func MakeSplitEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.SplitRequest)
 		v, err := svc.Split(req.S, req.K)
@@ -59,7 +59,7 @@ func MakeSplitEndpoint(svc handler.Handler) endpoint.Endpoint {
 	}
 }
 
-func MakeCountEndpoint(svc handler.Handler) endpoint.Endpoint {
+func MakeCountEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.CountRequest)
 		v := svc.Count(req.S)
