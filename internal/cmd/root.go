@@ -1,10 +1,12 @@
 package cmd
 
+import (
+	"log"
+	"net/http"
+)
+
 func Execute() {
 	router := New()
 
-	err := router.Run(":8080")
-	if err != nil {
-		panic(err)
-	}
+	log.Fatal(http.ListenAndServe(":8080", router))
 }

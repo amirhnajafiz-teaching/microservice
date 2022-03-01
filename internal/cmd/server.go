@@ -4,12 +4,12 @@ import (
 	"github.com/amirhnajafiz/go-kit/internal/endpoints"
 	"github.com/amirhnajafiz/go-kit/internal/http/handler"
 	"github.com/amirhnajafiz/go-kit/internal/http/middleware"
-	"github.com/gin-gonic/gin"
 	httpTransport "github.com/go-kit/kit/transport/http"
+	"net/http"
 )
 
-func New() *gin.Engine {
-	router := gin.Default()
+func New() *http.ServeMux {
+	router := http.NewServeMux()
 	svc := handler.Handler{}
 
 	uppercaseHandler := httpTransport.NewServer(
@@ -42,11 +42,11 @@ func New() *gin.Engine {
 		middleware.EncodeResponse,
 	)
 
-	router.POST("/uppercase", uppercaseHandler)
-	router.POST("/lowercase", lowercaseHandler)
-	router.POST("/concatenate", concatHandler)
-	router.POST("/split", splitHandler)
-	router.POST("/count", countHandler)
+	router.Handle("/uppercase", uppercaseHandler)
+	router.Handle("/lowercase", lowercaseHandler)
+	router.Handle("/concatenate", concatHandler)
+	router.Handle("/split", splitHandler)
+	router.Handle("/count", countHandler)
 
 	return router
 }
