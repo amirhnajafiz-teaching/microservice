@@ -27,7 +27,14 @@ func (Handler) Lowercase(s string) (string, error) {
 	return strings.ToLower(s), nil
 }
 
-//Concat(string, string) (string, error)
+func (Handler) Concatenate(s string, c string) (string, error) {
+	if s == "" || c == "" {
+		return "", ErrEmpty
+	}
+
+	return s + c, nil
+}
+
 //Split(string, string) ([]string, error)
 
 func (Handler) Count(s string) int {
