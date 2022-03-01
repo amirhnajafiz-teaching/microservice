@@ -47,6 +47,18 @@ func MakeConcatenateEndpoint(svc handler.StringService) endpoint.Endpoint {
 	}
 }
 
+func MakeSplitEndpoint(svc handler.StringService) endpoint.Endpoint {
+	return func(_ context.Context, request interface{}) (interface{}, error) {
+		req := request.(request2.SplitRequest)
+		v, err := svc.Split(req.S, req.K)
+		if err != nil {
+			return response2.SplitResponse{V: v, Err: err.Error()}, nil
+		}
+
+		return response2.SplitResponse{V: v, Err: ""}, nil
+	}
+}
+
 func MakeCountEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.CountRequest)
