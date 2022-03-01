@@ -1,12 +1,12 @@
 package cmd
 
 import (
-	"github.com/amirhnajafiz/go-kit/internal/decode"
-	"github.com/amirhnajafiz/go-kit/internal/endpoints"
-	"github.com/amirhnajafiz/go-kit/internal/http/handler"
+	"github.com/amirhnajafiz/go-kit/internal/http/middleware"
 	"log"
 	"net/http"
 
+	"github.com/amirhnajafiz/go-kit/internal/endpoints"
+	"github.com/amirhnajafiz/go-kit/internal/http/handler"
 	httpTransport "github.com/go-kit/kit/transport/http"
 )
 
@@ -15,32 +15,32 @@ func Execute() {
 
 	uppercaseHandler := httpTransport.NewServer(
 		endpoints.MakeUppercaseEndpoint(svc),
-		decode.DecodeUppercaseRequest,
-		decode.EncodeResponse,
+		middleware.DecodeUppercaseRequest,
+		middleware.EncodeResponse,
 	)
 
 	lowercaseHandler := httpTransport.NewServer(
 		endpoints.MakeLowercaseEndpoint(svc),
-		decode.DecodeLowercaseRequest,
-		decode.EncodeResponse,
+		middleware.DecodeLowercaseRequest,
+		middleware.EncodeResponse,
 	)
 
 	concatHandler := httpTransport.NewServer(
 		endpoints.MakeConcatenateEndpoint(svc),
-		decode.DecodeConcatenateRequest,
-		decode.EncodeResponse,
+		middleware.DecodeConcatenateRequest,
+		middleware.EncodeResponse,
 	)
 
 	splitHandler := httpTransport.NewServer(
 		endpoints.MakeSplitEndpoint(svc),
-		decode.DecodeSplitRequest,
-		decode.EncodeResponse,
+		middleware.DecodeSplitRequest,
+		middleware.EncodeResponse,
 	)
 
 	countHandler := httpTransport.NewServer(
 		endpoints.MakeCountEndpoint(svc),
-		decode.DecodeCountRequest,
-		decode.EncodeResponse,
+		middleware.DecodeCountRequest,
+		middleware.EncodeResponse,
 	)
 
 	http.Handle("/uppercase", uppercaseHandler)
