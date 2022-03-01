@@ -35,6 +35,18 @@ func MakeLowercaseEndpoint(svc handler.StringService) endpoint.Endpoint {
 	}
 }
 
+func MakeConcatenateEndpoint(svc handler.StringService) endpoint.Endpoint {
+	return func(_ context.Context, request interface{}) (interface{}, error) {
+		req := request.(request2.ConcatenateRequest)
+		v, err := svc.Concat(req.S, req.C)
+		if err != nil {
+			return response2.ConcatenateResponse{V: v, Err: err.Error()}, nil
+		}
+
+		return response2.ConcatenateResponse{V: v, Err: ""}, nil
+	}
+}
+
 func MakeCountEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.CountRequest)
