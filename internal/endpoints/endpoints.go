@@ -23,6 +23,18 @@ func MakeUppercaseEndpoint(svc handler.StringService) endpoint.Endpoint {
 	}
 }
 
+func MakeLowercaseEndpoint(svc handler.StringService) endpoint.Endpoint {
+	return func(_ context.Context, request interface{}) (interface{}, error) {
+		req := request.(request2.LowercaseRequest)
+		v, err := svc.Lowercase(req.S)
+		if err != nil {
+			return response2.LowercaseResponse{V: v, Err: err.Error()}, nil
+		}
+
+		return response2.LowercaseResponse{V: v, Err: ""}, nil
+	}
+}
+
 func MakeCountEndpoint(svc handler.StringService) endpoint.Endpoint {
 	return func(_ context.Context, request interface{}) (interface{}, error) {
 		req := request.(request2.CountRequest)
