@@ -15,8 +15,20 @@ func (Handler) Uppercase(s string) (string, error) {
 	if s == "" {
 		return "", ErrEmpty
 	}
+
 	return strings.ToUpper(s), nil
 }
+
+func (Handler) Lowercase(s string) (string, error) {
+	if s == "" {
+		return "", ErrEmpty
+	}
+
+	return strings.ToLower(s), nil
+}
+
+//Concat(string, string) (string, error)
+//Split(string, string) ([]string, error)
 
 func (Handler) Count(s string) int {
 	return len(s)
