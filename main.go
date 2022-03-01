@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/amirhnajafiz/go-kit/internal/cmd"
 
 func main() {
-	fmt.Println("Lets goo")
+	cmd.Execute()
 }
