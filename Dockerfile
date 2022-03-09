@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1
-
 FROM golang:1.16-alpine
 
 # switch to root
@@ -11,14 +10,14 @@ WORKDIR /app
 # copy mod and sum
 COPY go.mod go.sum ./
 
-# download dependencies
-RUN go mod download
-
 # copy all project files
-COPY . ./
+COPY . .
+
+# change work dir
+WORKDIR /app/cmd
 
 # build the exe file
-RUN go build -o /go-micro
+RUN go build -o ./go-micro
 
 # run the file
-CMD ["/go-micro"]
+CMD ["./go-micro"]

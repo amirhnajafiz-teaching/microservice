@@ -3,5 +3,5 @@ services:
   application:
     build: .
     ports:
-      - "8081:80"
+      - "8080:80"
     image: go-micro:0.1
