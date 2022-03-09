@@ -1,11 +1,12 @@
 package cmd
 
 import (
+	"net/http"
+
 	"github.com/amirhnajafiz/Go-Micro/internal/endpoints"
 	"github.com/amirhnajafiz/Go-Micro/internal/http/handler"
 	"github.com/amirhnajafiz/Go-Micro/internal/http/middleware"
 	httpTransport "github.com/go-kit/kit/transport/http"
-	"net/http"
 )
 
 func New() *http.ServeMux {
