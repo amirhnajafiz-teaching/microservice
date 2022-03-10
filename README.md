@@ -156,3 +156,16 @@ type SplitResponse struct {
     Err string   `json:"err,omitempty"`
 }
 ```
+
+## Setup project
+### Docker
+Use the following command to run the project on docker:
+```shell
+docker compose up -d
+```
+
+### Local
+Use the following command to run the project on local:
+```shell
+make start
+```
