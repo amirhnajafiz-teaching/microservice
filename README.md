@@ -1,19 +1,43 @@
-# Go-Micro
+<h1 align="center">
+Micro Go
+</h1>
 
-**Go-Micro** is a golang package that implements Micro-service architecture 
-using **go-kit**.
-
-## What is this project?
-In this project, I implemented a microservice application that does string
+**Micro-Go** is a golang project that implements Micro-service architecture 
+using **go-kit**. In this project I implemented a microservice application that does string
 operations like concat, count, split, ...
 
 The base idea behind this project was to work with **go-kit**, and learn how
 to implement a golang application using microservice architecture.
 
-To see how does this project work, check the following schema:<br />
-<img src="./assets/microservice-architecture.png" />
+## What do you learn from this project?
+- Microservice in Golang
+- Go-kit
 
-## What is go-kit?
+## What is microservice?
+Microservices - also known as the microservice 
+architecture - is an architectural style 
+that structures an application as a collection 
+of services that are:
+- Highly maintainable and testable
+- Loosely coupled
+- Independently deployable
+- Organized around business capabilities
+- Owned by a small team
+- 
+The microservice architecture enables the rapid, 
+frequent and reliable delivery of large, 
+complex applications. 
+
+It also enables an organization to evolve 
+its technology stack.
+
+To see how does this microservice work, check the following schema:
+
+<p align="center">
+<img src="./assets/microservice-architecture.png" width="400" alt="demo" />
+</p>
+
+## What is Go-kit?
 Go kit is a programming toolkit for building microservices 
 (or elegant monoliths) in Go. 
 It solves common problems in distributed systems and application architecture,
@@ -26,7 +50,12 @@ even program design — Go kit fills in the gaps left by the standard library,
 and makes Go a first-class language for writing microservices in any organization.
 
 ## How to use this project?
-#### uppercase string
+Clone into repository and set up the services:
+```shell
+go run main.go
+```
+
+#### uppercase string service
 url:
 ```shell
 [HOST]:[PORT]/uppercase
@@ -52,7 +81,7 @@ type UppercaseResponse struct {
 }
 ```
 
-#### lowercase string
+#### lowercase string service
 url:
 ```shell
 [HOST]:[PORT]/lowercase
@@ -78,7 +107,7 @@ type LowercaseResponse struct {
 }
 ```
 
-#### string length
+#### string length service
 url:
 ```shell
 [HOST]:[PORT]/count
@@ -103,7 +132,7 @@ type CountResponse struct {
 }
 ```
 
-#### concatenate string
+#### concatenate string service
 url:
 ```shell
 [HOST]:[PORT]/concatenate
@@ -130,7 +159,7 @@ type ConcatenateResponse struct {
 }
 ```
 
-#### split string
+#### split string service
 url:
 ```shell
 [HOST]:[PORT]/split
@@ -155,17 +184,4 @@ type SplitResponse struct {
     V   []string `json:"v"`
     Err string   `json:"err,omitempty"`
 }
-```
-
-## Setup project
-### Docker
-Use the following command to run the project on docker:
-```shell
-docker compose up -d
-```
-
-### Local
-Use the following command to run the project on local:
-```shell
-make start
 ```
