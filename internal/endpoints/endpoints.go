@@ -3,9 +3,9 @@ package endpoints
 import (
 	"context"
 
-	"github.com/amirhnajafiz/Go-Micro/internal/http/handler"
-	request2 "github.com/amirhnajafiz/Go-Micro/internal/http/request"
-	response2 "github.com/amirhnajafiz/Go-Micro/internal/http/response"
+	"github.com/amirhnajafiz/micro-go/internal/http/handler"
+	request2 "github.com/amirhnajafiz/micro-go/internal/http/request"
+	response2 "github.com/amirhnajafiz/micro-go/internal/http/response"
 	"github.com/go-kit/kit/endpoint"
 )
 

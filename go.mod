@@ -1,4 +1,4 @@
-module github.com/amirhnajafiz/Go-Micro
+module github.com/amirhnajafiz/micro-go
 
 go 1.17
 

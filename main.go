@@ -1,6 +1,6 @@
 package main
 
-import "github.com/amirhnajafiz/Go-Micro/internal/cmd"
+import "github.com/amirhnajafiz/micro-go/internal/cmd"
 
 func main() {
 	cmd.Execute()

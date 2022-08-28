@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	request2 "github.com/amirhnajafiz/Go-Micro/internal/http/request"
+	request2 "github.com/amirhnajafiz/micro-go/internal/http/request"
 )
 
 func DecodeUppercaseRequest(_ context.Context, r *http.Request) (interface{}, error) {
