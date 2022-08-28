@@ -1,7 +1,0 @@
-version: "3.9"
-services:
-  application:
-    build: .
-    ports:
-      - "8080:80"
-    image: go-micro:0.1
